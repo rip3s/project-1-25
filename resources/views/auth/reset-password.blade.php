@@ -29,7 +29,7 @@
 				  <form method="POST" action="{{ route('password.store') }}">
 			        @csrf
 
-                <!-- Password Reset Token -->
+                <!-- Password Reset Token โทเคน -->
                 <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
 					<div class="form-group">
