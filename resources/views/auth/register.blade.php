@@ -1,52 +1,69 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Login 08</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{asset('authentication/css/style.css')}}">
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-10 text-center mb-10">
+					<h2 class="heading-section">REGISTER</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-10 col-lg-10">
+					<div class="login-wrap p-4 p-md-10">
+		      	<div class="icon d-flex align-items-center justify-content-center">
+		      		<span class="fa fa-user-o"></span>
+		      	</div>
+		      	<h3 class="text-center mb-10">Have an account?</h3>
+				  <form method="POST" action="{{ route('register') }}">
+			        @csrf
+		      		<div class="form-group">
+		      			<input name="name" type="text" class="form-control rounded-left" placeholder="name" required>
+		      		</div>
+                      <div class="form-group">
+		      			<input name="email" type="text" class="form-control rounded-left" placeholder="email" required>
+		      		</div>
+                      <div class="form-group">
+		      			<input name="username" type="text" class="form-control rounded-left" placeholder="username" required>
+		      		</div>
+                      <div class="form-group">
+		      			<input name="phone" type="text" class="form-control rounded-left" placeholder="phone" required>
+		      		</div>
+	            <div class="form-group d-flex">
+	              <input name="password" type="password" class="form-control rounded-left" placeholder="Password" required>
+	            </div>
+                <div class="form-group d-flex">
+	              <input name="password_confirmation" type="password" class="form-control rounded-left" placeholder="Password confirmation" required>
+	            </div>
+	            <div class="form-group d-md-flex">
+	            </div>
+	            <div class="form-group">
+	            	<button type="submit" class="btn btn-primary rounded submit p-3 px-5">sign up</button>
+	            </div>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+	          </form>
+	        </div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+	<script src="{{asset('authentication/js/jquery.min.js')}}"></script>
+  <script src="{{asset('authentication/js/popper.js')}}"></script>
+  <script src="{{asset('authentication/js/bootstrap.min.js')}}"></script>
+  <script src="{{asset('authentication/js/main.js')}}"></script>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+	</body>
+</html>
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>

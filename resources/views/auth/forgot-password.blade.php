@@ -1,25 +1,52 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-    </div>
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Login 08</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-    <form method="POST" action="{{ route('password.email') }}">
-        @csrf
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{asset('authentication/css/style.css')}}">
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-10 text-center mb-10">
+					<h2 class="heading-section">REGISTER</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-10 col-lg-10">
+					<div class="login-wrap p-4 p-md-10">
+		      	<div class="icon d-flex align-items-center justify-content-center">
+		      		<span class="fa fa-user-o"></span>
+		      	</div>
+		      	<h3 class="text-center mb-10">Forgot password</h3>
+				  <form method="POST" action="{{ route('password.email') }}">
+			        @csrf
+                <div class="form-group d-flex">
+	              <input name="email" type="email" class="form-control rounded-left" placeholder="Email" required>
+	            </div>
+	            <div class="form-group">
+	            	<button type="submit" class="btn btn-primary rounded submit p-3 px-5">submit</button>
+	            </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+	          </form>
+	        </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{{asset('authentication/js/jquery.min.js')}}"></script>
+  <script src="{{asset('authentication/js/popper.js')}}"></script>
+  <script src="{{asset('authentication/js/bootstrap.min.js')}}"></script>
+  <script src="{{asset('authentication/js/main.js')}}"></script>
+
+	</body>
+</html>
+
