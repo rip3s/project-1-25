@@ -36,7 +36,7 @@
 	            <div class="form-group d-md-flex">
 	            	<div class="col-md-3 text-center mb-3">
 	            		<label class="checkbox-wrap checkbox-primary">Remember Me
-									  <input type="checkbox" checked>
+									  <input type="checkbox" id = "remember_token" name = "remember">
 									  <span class="checkmark"></span>
 									</label>
 								</div>
