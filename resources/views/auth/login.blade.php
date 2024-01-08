@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Login 08</title>
+  	<title>Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -13,7 +13,7 @@
 	</head>
 	<body>
 	<section class="ftco-section">
-		<div class="container">
+		<div class="container" style="background-color: #FFFFFF;">
 			<div class="row justify-content-center">
 				<div class="col-md-10 text-center mb-10">
 					<h2 class="heading-section">Login</h2>

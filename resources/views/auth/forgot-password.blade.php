@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Login 08</title>
+  	<title>Forgot Password</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -16,7 +16,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-10 text-center mb-10">
-					<h2 class="heading-section">REGISTER</h2>
+					<h2 class="heading-section">Forot Password</h2>
 				</div>
 			</div>
 			<div class="row justify-content-center">
