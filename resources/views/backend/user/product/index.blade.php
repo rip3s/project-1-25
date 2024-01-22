@@ -12,24 +12,34 @@
                           <tr>
                             <th>No</th>
                             <th>Name</th>
-                            <th>Count</th>
-                            <th>Create_at</th>
-                            <th>Update_at</th>
+                            <th>price</th>
+                            <th>description</th>
+                            <th>category_id</th>
+                            <th>image</th>
+                            <th>created_at</th>
+                            <th>update_at</th>
                             <th>Actions</th>
                           </tr>
                         </thead>
                         <tbody>
+                        @foreach ($product as $pro)
                           <tr>
-                            <td>1</td>
-                            <td>บะหมี่</td>
-                            <td>20</td>
-                            <td class="text-danger"> 2022-07-25 12:46:29 <i class="mdi mdi-arrow-down"></i></td>
-                            <td class="text-danger"> 2022-07-25 12:46:29 <i class="mdi mdi-arrow-down"></i></td>
+                          <td>{{ $product->firstItem() + $loop->index}}</td>
+                            <td>{{ $pro->name}}</td>
+                            <td>{{ $pro->price}}</td>
+                            <td>{{ $pro->description}}</td>
+                            <td>{{ $pro->category_id}}</td>
+                            <td>
+                              <img src=" {{ asset('backend/product/resize/'.$pro->image) }}" alt="">
+                            </td>
+                            <td>{{ $pro->created_at}}</td>
+                            <td>{{ $pro->updated_at}}</td>
                             <td class="text-danger">
-                              <a href="{{ route('u.product.edit')}}" type="button" class="btn btn-dark btn-icon-text" > Edit <i class="mdi mdi-file-check btn-icon-append"></i></a>
-                              <a href=" " type="button" class="btn btn-danger btn-icon-text btn-sm"><i class="mdi mdi-upload btn-icon-prepend"></i> Delete </a>
+                              <a href="{{ url('admin/user/product/edit/'.$pro->product_id) }}" type="button" class="btn btn-dark btn-icon-text" > Edit <i class="mdi mdi-file-check btn-icon-append"></i></a>
+                              <a href="{{ url('admin/user/product/delete/'.$pro->product_id) }}" type="button" class="btn btn-danger btn-icon-text btn-sm"><i class="mdi mdi-upload btn-icon-prepend"></i> Delete </a>
                             </td>
                           </tr>
+                          @endforeach
                         </tbody>
                       </table>
                     </div>

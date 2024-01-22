@@ -7,16 +7,39 @@
                                 <h5 class="card-header">Edit</h5>
                                 <div class="card-body">
                                   <div>
-                                    <label for="defaultFormControlInput" class="form-label">Name</label>
+                                  <form method="POST" action="{{ url('admin/user/product/update/'.$pro->product_id) }}">
+                                   @csrf
+                                   <label for="defaultFormControlInput" class="form-label">Name</label>
                                     <input
                                       type="text"
+                                      value="{{$pro->name}}"
+                                      name="name"
                                       class="form-control"
                                       id="defaultFormControlInput"
-                                      placeholder="กรุณากรอกประเภทสินค้า"
+                                      placeholder="กรุณากรอกชื่อสินค้า"
                                       aria-describedby="defaultFormControlHelp"/>
-                                    <a href="" class="btn btn-primary mt-3">แก้ไข</a>
+                                      <label for="defaultFormControlInput" class="form-label">Price</label>
+                                    <input
+                                      type="text"
+                                      value="{{$pro->price}}"
+                                      name="price"
+                                      class="form-control"
+                                      id="defaultFormControlInput"
+                                      placeholder="กรุณากรอกราคาสินค้า"
+                                      aria-describedby="defaultFormControlHelp"/>
+                                      <label for="defaultFormControlInput" class="form-label">Description</label>
+                                    <input
+                                      type="text"
+                                      value="{{$pro->description}}"
+                                      name="description"
+                                      class="form-control"
+                                      id="defaultFormControlInput"
+                                      placeholder="กรุณากรอกรายละเอียด"
+                                      aria-describedby="defaultFormControlHelp"/>
+                                      <input type="submit" value="อัพเดท" class="btn btn-primary mt-3"></input>
                                     <a href="{{ route('u.product') }}" class="btn btn-danger mt-3 mx-2">ย้อนกลับ</a>
                                   </div>
+                                </form>
                                 </div>
                               </div>
                             </div>

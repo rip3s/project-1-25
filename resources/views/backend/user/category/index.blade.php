@@ -12,26 +12,29 @@
                           <tr>
                             <th>No</th>
                             <th>Name</th>
-                            <th>Count</th>
                             <th>Create_at</th>
                             <th>Update_at</th>
                             <th>Actions</th>
                           </tr>
                         </thead>
                         <tbody>
+                        @foreach ($category as $cat)
                           <tr>
-                            <td>1</td>
-                            <td>บะหมี่</td>
-                            <td>20</td>
-                            <td class="text-danger"> 2022-07-25 12:46:29 <i class="mdi mdi-arrow-down"></i></td>
-                            <td class="text-danger"> 2022-07-25 12:46:29 <i class="mdi mdi-arrow-down"></i></td>
+                            <td>{{ $category->firstItem() + $loop->index}}</td>
+                            <td>{{ $cat->name}}</td>
+                            <td>{{ $cat->created_at}}</td>
+                            <td>{{ $cat->updated_at}}</td>
                             <td class="text-danger">
-                              <a href="{{ route('u.category.edit')}}" type="button" class="btn btn-dark btn-icon-text" > Edit <i class="mdi mdi-file-check btn-icon-append"></i></a>
-                              <a href=" " type="button" class="btn btn-danger btn-icon-text btn-sm"><i class="mdi mdi-upload btn-icon-prepend"></i> Delete </a>
+                              <a href="{{ url('admin/user/category/edit/'.$cat->category_id) }}" type="button" class="btn btn-dark btn-icon-text" > Edit <i class="mdi mdi-file-check btn-icon-append"></i></a>
+                              <a href="{{ url('admin/user/category/delete/'.$cat->category_id) }}" type="button" class="btn btn-danger btn-icon-text btn-sm"><i class="mdi mdi-upload btn-icon-prepend"></i> Delete</a>
                             </td>
                           </tr>
+                          @endforeach
                         </tbody>
                       </table>
+                      <div class="mt-3 container">
+                        {{ $category->links('pagination::bootstrap-5') }}
+                      </div>
                     </div>
                   </div>
                 </div>
