@@ -29,14 +29,19 @@ class ProductController extends Controller
         $product = new Product;
         //ป้องกันการกรอกข้อมูลผ่านฟอร์ม
         $validated = $request->validate([
-            'name' => 'required|unique:products|max:255',
-            'price' => 'required|unique:products|max:255',
-            'description' => 'required|unique:products|max:255'
+            'name' => 'required|max:255',
+            'price' => 'required|max:255',
+            'description' => 'required',
+            'image' => 'required|mimes:jpg,jpeg,png',
         ],
         [
          'name.required'=>'กรุณากรอกข้อมูลสินค้า',
-         'name.unique'=>'ชื่อนี้มีอยู่ในฐานข้อมูลอยู่เเล้ว',
-         'name.max'=>'กรอกข้อมูลได้ 255 ตัวอักษร'
+         'name.max'=>'กรอกข้อมูลได้ 255 ตัวอักษร',
+         'price.required'=>'กรุณากรอกราคาสินค้า',
+         'price.max'=>'กรอกข้อมูลได้ 255 ตัวอักษร',
+         'description.required'=>'กรุณากรอกข้อมูลประเภณสินค้า',
+         'image.mimes' => 'อัพโหลดที่มีนามสกุล .jpg .jpeg .png ได้เท่านั้น'
+
         ]);
         //การบันทึกข้อมูล
         $product->name = $request->name;
@@ -49,9 +54,9 @@ class ProductController extends Controller
             Image::make(public_path().'/backend/product/'.$filesname)->resize(250,250)->save(public_path().'/backend/product/resize/'.$filesname);
             $product->image = $filesname;
         }
-        else
-            $product->image = 'ไม่มีรูปภาพ';
-
+        else{
+            $product->image = 'no_image.jpg';
+        }
         $product ->save();
         alert()->success('บันทึกสำเร็จ','ข้อมูลนี้ถูกบันทึกเเล้ว');
         return redirect('admin/user/product');
@@ -60,14 +65,37 @@ class ProductController extends Controller
 
     public function update(Request $request, $product_id){
         $product = Product::find($product_id);
+        // dd($product);
         $product->name = $request->name;
+        $product->price = $request->price;
+        $product->description = $request->description;
+        $product->category_id = $request->category_id;
+
+        if ($request->hasFile('image')){
+
+            if( $product->image != 'no_image.jpg'){
+                File::delete(public_path().'/backend/product/'.$product->image);
+                File::delete(public_path().'/backend/product/resize/'.$product->image);
+            }
+            $filesname = Str::random(10).'.'.$request-> file('image')->getClientOriginalExtension();
+            $request->file('image')->move(public_path().'/backend/product/',$filesname);
+            Image::make(public_path().'/backend/product/'.$filesname)->resize(250,250)->save(public_path().'/backend/product/resize/'.$filesname);
+            $product->image = $filesname;
+        }
+        else{
+            $product->image = 'no_image.jpg';
+        }
         $product->update();
-        alert()->success('เเก้ไขข้อมูลสำเร็จ','ข้อมูลนี้ถูกบันทึกเเล้ว');
-        return redirect()->route('u.product');
+        alert()->success('บันทึกสำเร็จ','ข้อมูลนี้ถูกบันทึกเเล้ว');
+        return redirect('admin/user/product');
     }
 
     public function delete($product_id){
         $product = Product::find($product_id);
+            if( $product->image !='no_image.jpg'){
+                File::delete(public_path().'/backend/product/'.$product->image);
+                File::delete(public_path().'/backend/product/resize/'.$product->image);
+            }
         $product->delete();
         alert()->success('ลบข้อมูลสำเร็จ','ข้อมูลนี้ถูกลบเเล้ว');
         return redirect()->route('u.product');
