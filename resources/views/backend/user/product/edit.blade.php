@@ -54,7 +54,6 @@
 
                                     </div>
 
-
                                     <label for="defaultFormControlInput" class="form-label">Images</label>
                                       <div class="input-group">
                                         <input name="image" value="{{$pro->image}}" type="file" class="form-control" id="inputGroupFile02" />
