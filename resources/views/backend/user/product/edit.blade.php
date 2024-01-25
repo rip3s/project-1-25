@@ -19,6 +19,11 @@
                                       placeholder="กรุณากรอกชื่อสินค้า"
                                       aria-describedby="defaultFormControlHelp"
                                     />
+                                    <div class="mt-3">
+                                        @error('name')
+                                          <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                      </div>
                                     <label for="defaultFormControlInput" class="form-label">Price</label>
                                     <input
                                       type="text"
@@ -51,18 +56,12 @@
 
                                     <div class="mt-4">
                                       <img src="{{ asset('backend/product/resize/'.$pro->image) }}" alt="">
-
                                     </div>
 
                                     <label for="defaultFormControlInput" class="form-label">Images</label>
                                       <div class="input-group">
                                         <input name="image" value="{{$pro->image}}" type="file" class="form-control" id="inputGroupFile02" />
                                         <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                                      </div>
-                                      <div class="mt-3">
-                                        @error('name')
-                                          <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
                                       </div>
 
                                       <input type="submit" value="อัพเดท" class="btn btn-primary mt-3"></input>
