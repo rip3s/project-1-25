@@ -273,7 +273,7 @@
             </button>
           </div>
         </nav>
-        <!-- partial -->
+        <!-- partial --->
      @yield('contant')
         <!-- main-panel ends -->
       </div>
