@@ -10,6 +10,7 @@ class UserController extends Controller
 {
     public function index(){
         $u = User::all();
-        return view ('backend.user.user.index',compact('u'));
+        $user = User::orderBy('id','desc')->Paginate(5);
+        return view ('backend.user.user.index',compact('user'),compact('u'));
     }
 }

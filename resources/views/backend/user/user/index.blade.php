@@ -3,7 +3,7 @@
 <div class="col-lg-12 grid-margin stretch-card mt-4">
                 <div class="card mt-4">
                   <div class="card-body mt-4">
-                    <h4 class="card-title">Inverse table</h4>
+                    <h4 class="card-title">ตารางผู้ใช้</h4>
                     </p>
                     <div class="table-responsive">
                       <table class="table table-dark">
@@ -18,7 +18,7 @@
                         <tbody>
                           @foreach ($u as $users)
                           <tr>
-                            <td>{{ $users -> id}}</td>
+                          <td>{{ $user->firstItem() + $loop->index}}</td>
                             <td>{{ $users -> name}}</td>
                             <td>{{ $users -> phone}}</td>
                             <td>{{ $users -> email}}</td>
