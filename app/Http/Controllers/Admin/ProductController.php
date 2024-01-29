@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use File;
-Use Image;
-Use Illuminate\Support\str;
+use Image;
+use Illuminate\Support\str;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -17,12 +18,14 @@ class ProductController extends Controller
     }
 
     public function createform(){
-        return view ('backend.user.product.createform');
+        $category = Category::all();
+        return view ('backend.user.product.createform',compact('category'));
     }
 
     public function edit($product_id){
         $pro = Product::find($product_id);
-        return view ('backend.user.product.edit',compact('pro'));
+        $cat = Category::all();
+        return view ('backend.user.product.edit',compact('pro','cat'));
     }
     public function insert(Request $request){
 
@@ -33,7 +36,7 @@ class ProductController extends Controller
             'price' => 'required|max:255',
             'description' => 'required',
             'category_id' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png',
+            'image' => 'mimes:jpg,jpeg,png',
         ],
         [
          'name.required'=>'กรุณากรอกข้อมูลสินค้า',
@@ -83,9 +86,6 @@ class ProductController extends Controller
             $request->file('image')->move(public_path().'/backend/product/',$filesname);
             Image::make(public_path().'/backend/product/'.$filesname)->resize(250,250)->save(public_path().'/backend/product/resize/'.$filesname);
             $product->image = $filesname;
-        }
-        else{
-            $product->image = 'no_image.jpg';
         }
         $product->update();
         alert()->success('บันทึกสำเร็จ','ข้อมูลนี้ถูกบันทึกเเล้ว');

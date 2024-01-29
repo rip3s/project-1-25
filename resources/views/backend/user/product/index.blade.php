@@ -12,9 +12,9 @@
                           <tr>
                             <th>No</th>
                             <th>Name</th>
+                            <th>category_id</th>
                             <th>price</th>
                             <th>description</th>
-                            <th>category_id</th>
                             <th>image</th>
                             <th>created_at</th>
                             <th>update_at</th>
@@ -26,9 +26,9 @@
                           <tr>
                           <td>{{ $product->firstItem() + $loop->index}}</td>
                             <td>{{ $pro->name}}</td>
+                            <td>{{ $pro->category->name}}</td>
                             <td>{{ $pro->price}}</td>
                             <td>{{ $pro->description}}</td>
-                            <td>{{ $pro->category_id}}</td>
                             <td>
                               <img src=" {{ asset('backend/product/resize/'.$pro->image) }}" alt="">
                             </td>
