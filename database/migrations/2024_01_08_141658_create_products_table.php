@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('product_id',10);
             $table->string('name',255);
             $table->string('price',255);
-            $table->string('description');
+            $table->string('description')->nullable();;
             $table->string('category_id',10);
             $table->string('image',255);
             $table->timestamps();

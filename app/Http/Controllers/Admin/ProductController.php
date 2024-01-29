@@ -34,7 +34,6 @@ class ProductController extends Controller
         $validated = $request->validate([
             'name' => 'required|max:255',
             'price' => 'required|max:255',
-            'description' => 'required',
             'category_id' => 'required',
             'image' => 'mimes:jpg,jpeg,png',
         ],
@@ -43,9 +42,8 @@ class ProductController extends Controller
          'name.max'=>'กรอกข้อมูลได้ 255 ตัวอักษร',
          'price.required'=>'กรุณากรอกราคาสินค้า',
          'price.max'=>'กรอกข้อมูลได้ 255 ตัวอักษร',
-         'description.required'=>'กรุณากรอกรายละเอียดสินค้า',
          'category_id.required'=>'กรุณากรอกข้อมูลประเภณสินค้า',
-         'image.mimes' => 'อัพโหลดที่มีนามสกุล .jpg .jpeg .png ได้เท่านั้น'
+         'image.mimes' => 'อัพโหลดที่มีนามสกุล .jpg .jpeg .png ได้เท่านั้น',
 
         ]);
         //การบันทึกข้อมูล

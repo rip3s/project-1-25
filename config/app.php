@@ -161,7 +161,7 @@ return [
          */
 
         // intervention image รูปภาพ
-         Intervention\Image\ImageServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         // sweetalert เเจ้งเตือน
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
