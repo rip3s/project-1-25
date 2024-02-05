@@ -19993,7 +19993,9 @@ div.tagsinput {
       margin: auto; } }
 
 .auth .brand-logo {
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  max-width: 100%;
+  height: auto; }
   .auth .brand-logo img {
     width: 150px; }
 

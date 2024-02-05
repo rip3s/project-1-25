@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+
 //เมนู User
 Route::get('admin/user/index',[UserController::class, 'index'])->name('u.index');
 //เมนู Category

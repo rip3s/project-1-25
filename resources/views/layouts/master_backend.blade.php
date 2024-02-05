@@ -38,7 +38,9 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="{{url('/dashboard')}}"><img src="{{ asset('backend/assets/images/logo.svg') }}" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo " style="width:80px;" href="{{url('/dashboard')}}">
+            <img src="{{ asset('backend/assets/images/logo.png') }}" alt="logo" />
+          </a>
           <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="{{ asset('backend/assets/images/logo-mini.svg') }}" alt="logo" /></a>
         </div>
         <ul class="nav">
