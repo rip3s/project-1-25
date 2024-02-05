@@ -251,8 +251,8 @@
                   <h6 class="p-3 mb-0">Profile</h6>
                   <div class="dropdown-divider"></div>
                   <div class="dropdown-divider"></div>
-                  <form method="POST" action="{{ route('logout') }}">
-                    @csrf
+                    <form method="POST" action="{{ route('logout') }}">
+                      @csrf
                   <a class="dropdown-item preview-item" class="dropdown-item" href="route('logout')"
                     onclick="event.preventDefault();
                         this.closest('form').submit();">
