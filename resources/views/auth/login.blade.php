@@ -46,7 +46,13 @@
 								<div class="w-50 text-md-right">
 									<a href="{{ route('password.request') }}">Forgot Password</a>
 								</div>
+								
 	            </div>
+				<div class="mt-3">
+                                    @error('name')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                    </div>
 	            <div class="form-group">
 	            	<button type="submit" class="btn btn-primary rounded submit p-3 px-5">Get Started</button>
 	            </div>

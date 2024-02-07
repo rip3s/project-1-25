@@ -46,6 +46,8 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        alert()->success('สมัครข้อมูลสำเร็จเเล้ว','ยินดีต้อนรับ');
+
         event(new Registered($user));
 
         Auth::login($user);
