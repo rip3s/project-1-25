@@ -38,7 +38,7 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo " style="width:100px;" href="{{url('/dashboard')}}">
+          <a class="sidebar-brand brand-logo " style="width:100px;" href="{{url('dashboard')}}">
             <img src="{{ asset('backend/assets/images/banner.png') }}" alt="logo" />
           </a>
           <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="{{ asset('backend/assets/images/mqdefault.jpg') }}" alt="logo" /></a>
@@ -196,7 +196,7 @@
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Settings</p>
+                      <p class="preview-subject mb-1">My profile</p>
                       <p class="text-muted ellipsis mb-0"> Update dashboard </p>
                     </div>
                   </a>
@@ -236,7 +236,7 @@
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Setting</p>
+                      <p class="preview-subject mb-1">Profile</p>
                         </div>
                   </a>
 

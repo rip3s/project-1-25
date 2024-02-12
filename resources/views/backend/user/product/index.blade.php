@@ -5,7 +5,7 @@
                   <div class="card-body mt-4">
                     <h4 class="card-title">Product</h4>
                     <a href="{{ route('u.product.createform') }}" type="button" class="btn btn-outline-success btn-icon-text">
-                    <i class="mdi mdi-alert btn-icon-prepend"></i> เพิ่มข้อมูล </a>
+                    <i class="mdi mdi-plus btn-icon-prepend"></i> เพิ่มข้อมูล </a>
                     <div class="table-responsive">
                       <table class="table table-hover">
                         <thead>

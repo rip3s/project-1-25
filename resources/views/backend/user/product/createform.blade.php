@@ -74,7 +74,7 @@
                                         <input name="image" type="file" class="form-control" id="inputGroupFile02" />
                                         <label class="input-group-text" for="inputGroupFile02">Upload</label>
                                       </div>
-                                      <input type="submit" value="บันทึก" class="btn btn-primary mt-3">
+                                      <input type="submit" value="บันทึก" class="btn btn-primary mt-3"/>
                                     <a href="{{ route('u.product') }}" class="btn btn-danger mt-3 mx-2">ย้อนกลับ</a>
                                    </div>
                                   </form>

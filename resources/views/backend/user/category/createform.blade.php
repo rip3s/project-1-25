@@ -23,7 +23,7 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                     </div>
-                                    <input type="submit" class="btn btn-primary mt-3"></input>
+                                    <input type="submit" value="บันทึก" class="btn btn-primary mt-3"/>
                                     <a href="{{ route('u.category') }}" class="btn btn-danger mt-3 mx-2">ย้อนกลับ</a>
                                   </div>
                                 </form>
